@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Предприниматель и стартапер</title>
+</head>
+
+<body>
+    <header>
+        <h1>Мамедов Наиль Закирович</h1>
+        <p>Предприниматель и стартапер</p>
+        <p id="welcome-message">Мой путь в мире бизнеса и стартапов</p>
+
+        <button type="button" id="theme-toggle-btn" class="action-button theme-btn" aria-pressed="false">
+            Тёмная тема
+        </button>
+
+        <!-- Flexbox: Адаптивное навигационное меню -->
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#ideas">Идеи стартапов</a></li>
+                <li><a href="#metrics">Ключевые метрики</a></li>
+                <li><a href="#contact">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img src="images/avatar.jpg" alt="Аватар предпринимателя" width="430" height="570" class="profile-img">
+
+        <section id="about">
+            <h2>Навыки</h2>
+            <ul>
+                <li>Маркетинг и продвижение</li>
+                <li>Управление проектами</li>
+                <li>Финансовое планирование</li>
+                <li>Разработка бизнес-стратегий</li>
+                <li>Анализ рынка</li>
+            </ul>
+        </section>
+
+        <!-- Секция идей стартапов (ЛР №3 + интерактивность ЛР №5) -->
+        <section id="ideas">
+            <h2 id="ideas-title">Идеи стартапов</h2>
+
+            <!-- Панель управления идеями (ЛР №5, Вариант 16) -->
+            <div class="ideas-controls">
+                <div class="ideas-inputs">
+                    <input type="text" id="idea-title-input" placeholder="Название идеи (необязательно)">
+                    <input type="text" id="idea-audience-input" placeholder="Целевая аудитория (необязательно)">
+                    <input type="text" id="idea-metric-input" placeholder="Метрика, напр. LTV > 300$ (необязательно)">
+                </div>
+                <div class="ideas-buttons">
+                    <button type="button" id="add-idea-btn" class="submit-button">Добавить идею</button>
+                    <button type="button" id="remove-last-btn" class="action-button danger-btn">Удалить последнюю</button>
+                    <button type="button" id="toggle-ideas-btn" class="action-button" aria-expanded="true">Скрыть идеи</button>
+                </div>
+            </div>
+
+            <!-- Контейнер для карточек (заполняется через DOM API и localStorage) -->
+            <div id="ideas-container" class="cards-container"></div>
+        </section>
+
+        <!-- Grid: Дашборд с метриками (ЛР №3 + ЛР №4) -->
+        <section id="metrics">
+            <h2>Ключевые метрики стартапа</h2>
+            <div class="dashboard-grid">
+                <div class="metric-block">
+                    <h3>MAU (Active Users)</h3>
+                    <p>Активные пользователи за месяц</p>
+                    <meter value="8500" min="0" max="10000" low="3000" high="8000" optimum="9000"></meter>
+                    <span class="metric-value">8 500 чел.</span>
+                </div>
+
+                <div class="metric-block">
+                    <h3>LTV (Lifetime Value)</h3>
+                    <p>Пожизненная ценность клиента</p>
+                    <meter value="450" min="0" max="500" low="100" high="400" optimum="480"></meter>
+                    <span class="metric-value">450 $</span>
+                </div>
+
+                <div class="metric-block">
+                    <h3>CAC (Acquisition Cost)</h3>
+                    <p>Стоимость привлечения клиента</p>
+                    <meter value="45" min="0" max="200" low="50" high="150" optimum="20"></meter>
+                    <span class="metric-value">45 $</span>
+                </div>
+
+                <!-- Блок финансовой аналитики из ЛР №4 -->
+                <div class="metric-block">
+                    <h3>Финансовая аналитика</h3>
+                    <p>Анализ выручки по дням</p>
+                    <p>Общая выручка: <span id="total-revenue" class="metric-value">-</span></p>
+                    <p>Максимум: <span id="max-revenue" class="metric-value">-</span></p>
+                    <p>Среднее: <span id="avg-revenue" class="metric-value">-</span></p>
+                    <p>Дни с низкой выручкой (≤3000₽): <span id="low-days" class="metric-value">-</span> (<span id="low-days-share">-</span>%)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Обратная связь</h2>
+            <form>
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+
+                <label for="email">Ваш Email:</label>
+                <input type="email" id="email" name="email" placeholder="Введите ваш Email">
+
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" placeholder="Введите сообщение"></textarea>
+
+                <button type="submit" class="submit-button">Отправить сообщение</button>
+            </form>
+        </section>
+    </main>
+
+    <aside>
+        <h2>Моя ключевая ценность</h2>
+        <p>Успешный бизнес начинается с идеи, которая решает реальную проблему людей.</p>
+    </aside>
+
+    <footer>
+        <p>© 2026. Все права защищены.</p>
+        <p><a href="https://github.com/naile-dsc">Мой GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

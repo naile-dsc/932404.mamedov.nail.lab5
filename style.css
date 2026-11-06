@@ -1,0 +1,341 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #c2410c;
+    --accent-color: #ffffff;
+    --background-color: #fff7ed;
+    --surface-color: #ffffff;
+    --text-color: #1f2937;
+    --border-color: #cbd5e1;
+    --footer-color: #1f2937;
+    --header-bg: #c2410c;
+    --font-main: Arial, sans-serif;
+}
+
+/* Тёмная тема (ЛР №5) */
+body.dark-theme {
+    --primary-color: #fb923c;
+    --accent-color: #f8fafc;
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f1f5f9;
+    --border-color: #334155;
+    --footer-color: #020617;
+    --header-bg: #1e293b;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--accent-color);
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Flexbox: Навигационное меню */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.nav-menu a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.nav-menu a:visited {
+    color: #fed7aa;
+}
+
+.nav-menu a:hover, .nav-menu a:focus {
+    border-color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.nav-menu a:active {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(0.98);
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.profile-img {
+    display: block;
+    margin: 20px auto 40px;
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+section, aside {
+    background-color: var(--surface-color);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+aside {
+    max-width: 960px;
+    margin: 0 auto 30px;
+    border-left: 5px solid var(--primary-color);
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Панель управления идеями (ЛР №5) */
+.ideas-controls {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.ideas-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.ideas-inputs input {
+    flex: 1 1 calc((100% - 20px) / 3);
+    margin: 0;
+}
+
+.ideas-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Flexbox: Карточки идей */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Класс для скрытия блока по клику (ЛР №5) */
+.hidden {
+    display: none !important;
+}
+
+.idea-card {
+    flex: 1 1 calc((100% - 60px) / 4);
+    background-color: var(--background-color);
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.idea-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Grid: Дашборд с метриками */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.metric-block {
+    background-color: var(--background-color);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    min-width: 0;
+}
+
+.metric-block h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+meter {
+    width: 100%;
+    height: 25px;
+    margin: 10px 0;
+}
+
+.metric-value {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Курсоры и поля ввода */
+input, textarea {
+    cursor: text;
+    display: block;
+    width: 100%;
+    margin: 5px 0 15px;
+    padding: 10px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 5px rgba(194, 65, 12, 0.3);
+}
+
+button, a {
+    cursor: pointer;
+}
+
+.submit-button, .action-button, .delete-card-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-position 0.6s ease, transform 0.1s ease, opacity 0.2s ease;
+}
+
+.submit-button {
+    background: linear-gradient(120deg, #9a3412, #b45309, #c2410c, #9a3412);
+    background-size: 300% 100%;
+    background-position: 0% 50%;
+    color: #ffffff;
+}
+
+.submit-button:hover {
+    background-position: 100% 50%;
+}
+
+.action-button {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+}
+
+.theme-btn {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.danger-btn, .delete-card-btn {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.delete-card-btn {
+    margin-top: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.submit-button:focus, .action-button:focus, .delete-card-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.submit-button:active, .action-button:active, .delete-card-btn:active {
+    transform: scale(0.98);
+}
+
+footer {
+    background-color: var(--footer-color);
+    color: var(--accent-color);
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:visited {
+    color: #fed7aa;
+}
+
+footer a:hover, footer a:focus {
+    color: #ffedd5;
+    outline: 1px dotted white;
+}
+
+footer a:active {
+    color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .idea-card {
+        flex: 1 1 calc((100% - 20px) / 2);
+    }
+
+    .ideas-inputs input {
+        flex: 1 1 100%;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .idea-card {
+        flex: 1 1 100%;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 100%;
+    }
+}
